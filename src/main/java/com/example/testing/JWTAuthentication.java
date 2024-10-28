@@ -1,4 +1,4 @@
-package com.example.testing.utill;
+package com.example.testing;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
-
-@Component
 
 public class JWTAuthenticator {
     private final String jwtSecret = "your secret key";
@@ -40,7 +38,7 @@ public class JWTAuthenticator {
             Jwts.parser().setSigningKey(key()).build().parse(jwtToken);
             return true;
         } catch (Exception e) {
-                System.out.println("Error occurred when validate...");
+            System.out.println("Error occurred when validate...");
         }
         return false;
 
